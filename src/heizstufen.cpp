@@ -11,6 +11,7 @@ DallasTemperature sensors(&oneWire);
 
 unsigned long previousMillis = 0;
 const long interval = 1000;
+int power = 55;
 
 void setup() {
     Serial.begin(9600);
@@ -18,7 +19,6 @@ void setup() {
     pinMode(L298N_PIN, OUTPUT);
 }
 
-int power = 55;
 void loop() {
     unsigned long currentMillis = millis();
 
@@ -26,7 +26,10 @@ void loop() {
     if (currentMillis - previousMillis >= interval) {
         previousMillis = currentMillis;
         
-        // Power wird in alle 1000ms um 40 erhöt wenn er den Wert 255 überschreitet wird er auf 55 gesetzt
+        /*
+         * Power wird in alle 1000ms um 40 erhöt wenn er
+         * den Wert 255 überschreitet wird er auf 55 gesetzt
+        */ 
         power += 40;
         if (power > 255) {
             power = 55;
