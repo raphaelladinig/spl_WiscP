@@ -27,7 +27,7 @@ void loop() {
         previousMillis = currentMillis;
         
         /*
-         * Power wird in alle 1000ms um 40 erhöt wenn er
+         * Power wird in alle 1000 ms um 40 erhöt wenn er
          * den Wert 255 überschreitet wird er auf 55 gesetzt
         */ 
         power += 40;

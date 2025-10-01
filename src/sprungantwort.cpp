@@ -22,7 +22,7 @@ void setup() {
 void loop() {
     unsigned long currentMillis = millis();
     
-    // nach 30s wird der Motor Controller auf 50 gesetzt
+    // nach 30 s wird der Motor Controller auf 50 gesetzt
     if (currentMillis >= 30000) {
         power = 50;
         analogWrite(L298N_PIN, power);
