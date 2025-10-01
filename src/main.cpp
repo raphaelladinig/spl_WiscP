@@ -18,17 +18,17 @@ void setup() {
     pinMode(L298N_PIN, OUTPUT);
 }
 
+int power = 55;
 void loop() {
     unsigned long currentMillis = millis();
 
-    int power = 0;
-
-    if (currentMillis >= 30000) {
-        power = 50;
-        analogWrite(L298N_PIN, power);
-    }
-
     if (currentMillis - previousMillis >= interval) {
+        power += 40;
+        if (power > 255) {
+            power = 55;
+        }
+
+        analogWrite(L298N_PIN, power);
         previousMillis = currentMillis;
 
         sensors.requestTemperatures();
